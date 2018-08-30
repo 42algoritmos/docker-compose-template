@@ -1,0 +1,18 @@
+version: "3"
+services:
+  sdk-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.sdk
+    image: lopesivan/sdk-server:1.0
+    container_name: sdk-server
+
+#    user: root
+#    working_dir: /opt/sdk
+#    command: /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+#
+#    ports:
+#      - 22
+#
+#    volumes:
+#       - ${PWD}/workspace:/root/workspace
