@@ -1,0 +1,32 @@
+version: "2"
+services:
+
+  sdk-server:
+    image: registry.local:5000/ubuntu:18.04
+    container_name: sdk-server
+    hostname: sdk-server
+    command: /bin/sh /opt/sdk/bin/entrypoint.sh
+
+    ports:
+      - "8989:443"
+
+    volumes:
+      - ./opt/sdk:/opt/sdk
+      - ./var/opt/sdk:/var/opt/sdk
+      - ./etc/sdk:/etc/sdk
+
+    env_file: env.production
+
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    mem_limit: 20M
+    #mem_limit: 20Mg
+    cpu_quota: 50000
+    cap_add:
+      - IPC_LOCK
