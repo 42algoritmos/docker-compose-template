@@ -1,0 +1,15 @@
+version: "3"
+services:
+  sdk-server:
+    image: registry.local:5000/ubuntu:18.04
+    container_name: sdk-server
+
+#    user: root
+#    working_dir: /opt/sdk
+    command: /bin/sh /opt/sdk/bin/entrypoint.sh
+
+#    ports:
+#      - 22
+#
+    volumes:
+       - ${PWD}/scripts:/opt/sdk/bin
