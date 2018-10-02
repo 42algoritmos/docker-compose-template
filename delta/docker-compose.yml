@@ -1,0 +1,19 @@
+version: "3.1"
+
+services:
+
+  plenv:
+    build:
+      context: .
+      dockerfile: Dockerfile.${NAME}
+      args:
+        BUILD_DATE: ${DATE}
+        VERSION: ${VERSION}
+
+    image: ${OWNER}/${NAME}:${VERSION}
+    container_name: ${CONTAINER_NAME}
+    command: /bin/sh /docker/entrypoint.sh
+    user: root
+    volumes:
+       - ${PWD}/user:/root
+
