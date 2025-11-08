@@ -3,10 +3,10 @@
 set -x
 
 while true; do
-	echo OK
-	sleep 2
+    echo OK
+    sleep 2
 done
 
-echo FIM
+echo FIM FIM FIM
 
 exit 0
